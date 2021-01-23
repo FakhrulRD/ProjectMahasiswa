@@ -11,7 +11,12 @@ class Dosen extends Model
     protected $table ='Dosen';
     protected $fillable = [
         'nip',
-        'nmk',
         'name',
+        'slug',
+        'alamat',
     ];
+    public function Matkul()
+    {
+        return $this->belongsTo(Matkul::class);
+    }
 }

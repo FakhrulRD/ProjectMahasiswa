@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Dosen;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DosenFactory extends Factory
@@ -22,10 +23,10 @@ class DosenFactory extends Factory
     public function definition()
     {
         return [
+            'matkul_id' => $this->faker->randomElement(['1','2','3','4','5']),
             'nip' => $this-> faker->numberBetween(123456789, 987654321),
-            'nmk' => $this-> faker->numberBetween(001, 100),
-            'name' => $this-> faker->name,
-            'matkul' => $this-> faker->randomElement(['PWeb','MPPL','PTI','PABP','PIS']),
+            'nama' => $this-> faker->nama,
+            'slug' => Str::slug($this->faker->sentence()),
             'alamat' => $this-> faker->address,
         ];
     }
